@@ -3,9 +3,9 @@
 class DB {
     var $db = false;
 
-    function __constructor($dbuser, $dbpass, $dbhost, $dbname) {
+    function __construct($dbuser, $dbpass, $dbhost, $dbname) {
         $this->db = new PDO("mysql:dbname=$dbname;host=$dbhost",$dbuser,$dbpass);
-        query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
+        $this->query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
     }
 
     function query($query,$params = array()) {
@@ -26,7 +26,7 @@ class DB {
         return $next;
     }
 
-    function lastId() {
+    function id() {
         return $this->db->lastInsertId();
     }
 
@@ -38,8 +38,8 @@ class DB {
         $query = sprintf("UPDATE `%s` set " . implode(",",$values) . " WHERE id=:id",$table);
         $data['id'] = $id;
 
-        $q = query($query,$data);
-        $id = id();
+        $q = $this->query($query,$data);
+        $id = $this->id();
         return $id;
     }
 
@@ -51,13 +51,13 @@ class DB {
             $values[] = ":" . $k;
         }
         $query = sprintf("INSERT INTO `%s` (" . implode(",",$fields) . ") VALUES (" . implode(",",$values) . ")",$table);
-        $q = query($query,$data);
-        $id = id();
+        $q = $this->query($query,$data);
+        $id = $this->id();
         return $id;
     }
 
     function set($table,$record,$field,$value) {
-        query("UPDATE `$table` SET `$field`=:f WHERE id=:i",array(
+        $this->query("UPDATE `$table` SET `$field`=:f WHERE id=:i",array(
             'f'=>$value,
             'i'=>$record
         ));
@@ -65,7 +65,7 @@ class DB {
 
     function select($table,$record) {
         $query = sprintf("SELECT * FROM `%s` WHERE id=:id",$table);
-        $q = query($query,array("id" => $record));
+        $q = $this->query($query,array("id" => $record));
         $r = next($q);
         return $r;
     }
