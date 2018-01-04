@@ -1,6 +1,7 @@
 {
     "name": "majenkotech/dbwrapper",
     "description": "Simple MySQL db wrapper functions using PDO",
+    "license": "BSD3",
     "authors": [
         {
             "name": "Matt Jenkins",
