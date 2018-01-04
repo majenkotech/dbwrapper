@@ -9,7 +9,7 @@ class DB {
     }
 
     function query($query,$params = array()) {
-        $q = $db->prepare($query);
+        $q = $this->db->prepare($query);
         $q->execute($params);
         $e = $q->errorInfo();
         if($e[0]!='00000') {
@@ -27,7 +27,7 @@ class DB {
     }
 
     function lastId() {
-        return $db->lastInsertId();
+        return $this->db->lastInsertId();
     }
 
     function update($table,$id,$data) {
