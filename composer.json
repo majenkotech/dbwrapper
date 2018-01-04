@@ -1,0 +1,10 @@
+{
+    "name": "majenkotech/dbwrapper",
+    "description": "Simple MySQL db wrapper functions using PDO",
+    "authors": [
+        {
+            "name": "Matt Jenkins",
+            "email": "matt@majenko.co.uk"
+        }
+    ]
+}
