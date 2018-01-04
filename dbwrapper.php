@@ -4,7 +4,7 @@ class DB {
     var $db = false;
 
     function __constructor($dbuser, $dbpass, $dbhost, $dbname) {
-        $db = new PDO("mysql:dbname=$dbname;host=$dbhost",$dbuser,$dbpass);
+        $this->db = new PDO("mysql:dbname=$dbname;host=$dbhost",$dbuser,$dbpass);
         query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
     }
 
