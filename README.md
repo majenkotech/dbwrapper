@@ -13,7 +13,7 @@ Usage
 
 1. Create an object:
 
-    $db = new DB("username", "password", "hostname", "database");
+    $db = new \Majenkotech\DB("username", "password", "hostname", "database");
 
 2. Execute a query with optional embedded arguments:
 

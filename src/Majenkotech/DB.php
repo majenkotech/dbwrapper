@@ -6,7 +6,7 @@ class DB {
     var $db = false;
 
     function __construct($dbuser, $dbpass, $dbhost, $dbname) {
-        $this->db = new PDO("mysql:dbname=$dbname;host=$dbhost",$dbuser,$dbpass);
+        $this->db = new \PDO("mysql:dbname=$dbname;host=$dbhost",$dbuser,$dbpass);
         $this->query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
     }
 
