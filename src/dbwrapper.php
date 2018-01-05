@@ -1,5 +1,7 @@
 <?php
 
+namespace Majenkotech;
+
 class DB {
     var $db = false;
 

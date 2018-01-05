@@ -9,6 +9,8 @@
         }
     ],
     "autoload": {
-        "files": ["dbwrapper.php"]
+        "psr-0": {
+            "Majenkotech": "src"
+        }
     }
 }
