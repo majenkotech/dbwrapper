@@ -68,7 +68,7 @@ class DB {
     function select($table,$record) {
         $query = sprintf("SELECT * FROM `%s` WHERE id=:id",$table);
         $q = $this->query($query,array("id" => $record));
-        $r = next($q);
+        $r = $this->nextRecord($q);
         return $r;
     }
 }
